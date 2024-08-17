@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/valid-palindrome/description/
 
-package leetcode
+package twopointer
 
 import (
 	"regexp"

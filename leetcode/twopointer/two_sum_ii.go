@@ -1,8 +1,8 @@
 // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 
-package leetcode
+package twopointer
 
-func TwoSum(numbers []int, target int) []int {
+func TwoSumII(numbers []int, target int) []int {
 	// Handle base case
 	if len(numbers) == 2 {
 		return []int{1, 2}

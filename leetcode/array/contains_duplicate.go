@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/contains-duplicate/description/
 
-package leetcode
+package array
 
 func ContainsDuplicate(nums []int) bool {
 	occurrenceMap := make(map[int]int)

@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/product-of-array-except-self/description/
 
-package leetcode
+package array
 
 func ProductOfArrayExceptSelf(nums []int) []int {
 	// Get the values for the prefix array

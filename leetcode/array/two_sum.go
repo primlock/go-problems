@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/two-sum/description/
 
-package leetcode
+package array
 
 func TwoSum(nums []int, target int) []int {
 	numMap := make(map[int]int)

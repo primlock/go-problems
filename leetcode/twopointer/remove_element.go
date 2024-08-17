@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/remove-element/description/
 
-package leetcode
+package twopointer
 
 func truncate(nums []int, val int) []int {
 	for i, num := range nums {

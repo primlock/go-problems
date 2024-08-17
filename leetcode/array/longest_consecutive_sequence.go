@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/longest-consecutive-sequence/description/
 
-package leetcode
+package array
 
 func LongestConsecutiveSequence(nums []int) int {
 	maxStreak := 0

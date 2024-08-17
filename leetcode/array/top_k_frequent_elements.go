@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/top-k-frequent-elements/description/
 // https://leetcode.com/problems/top-k-frequent-elements/solutions/5457017/go-topkfrequent-in-o-n-time-space/
 
-package leetcode
+package array
 
 func TopKFrequent(nums []int, k int) []int {
 	// Make a frequency map of nums
