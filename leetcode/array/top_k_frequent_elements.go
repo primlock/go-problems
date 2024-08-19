@@ -1,5 +1,4 @@
 // https://leetcode.com/problems/top-k-frequent-elements/description/
-// https://leetcode.com/problems/top-k-frequent-elements/solutions/5457017/go-topkfrequent-in-o-n-time-space/
 
 package array
 

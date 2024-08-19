@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/missing-number/description/
+
 package array
 
 func MissingNumber(nums []int) int {
