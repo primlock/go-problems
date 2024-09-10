@@ -1,6 +1,8 @@
 package basic
 
 /*
+	https://www.hackerrank.com/challenges/one-week-preparation-kit-lonely-integer/problem
+
 	Count Sorting - Each time a value occurs in the original array,
 	you increment the counter at that index.
 
