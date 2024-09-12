@@ -12,9 +12,11 @@ Right: Elements 1 and 2 shift to the right by 1 index and element 3 wraps around
 Shifting every element to the left or to the right can become expensive (in terms of time) fast. To perform just one rotation without optimizations we need to iterate over the entire array, shifting each element to the left or to the right. We then need to repeat this process for the number of rotations required.
 
 The trick is not to do any more work than what you need. This means finding out the **minimum** number of rotations needed to place the array in the expected order. If array is of size $n$ and the number of rotations is $k$, performing $n = k$ rotations puts the array back in the original order that you started with. To find this minumum we need the remainder of the number of rotaions divided by the size of the array:
+
 $$
 k = k \% n
 $$
+
 In programming, this is achieved using the modulo operator in the expression: `k = k % n`. Now we have the minimum number of *left* rotations we need to perform in order to rotate our elements in the expected order. To find the minimum number of *right* rotations, we need to perform an extra step which is to subtract the size of the array by number of rotations we need to perform, `x = n - k`. This has the effect of rotating left until we are at the position we would be in if we went right.
 
 ## Use a Temporary Array
