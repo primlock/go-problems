@@ -23,7 +23,7 @@ In programming, this is achieved using the modulo operator in the expression: `k
 There are multiple way to do the rotation, some more space efficient than others but I find the simplest is to create a temp array and append to it. Once we have our array, we are going to begin adding elements to it starting from $i = k$. When we reach the end of the original array, we being another loop to start from index $0$ and go until we reach index $k$. The result is a temp array with the order of the original array rotated $k$ times.
 
 ## Left Rotation Sample Code 
-```
+```go
 // nums = [1, 2, 3, 4, 5], k = 3
 
 n := len(nums)
@@ -42,7 +42,7 @@ for i := 0; i < k; i++ {
 ```
 
 ## Right Rotation Sample Code 
-```
+```go
 // nums = [1, 2, 3, 4, 5], k = 3
 
 n := len(nums)

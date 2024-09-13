@@ -9,7 +9,7 @@ A typical frequency map is a hash map using a key with the same data type as the
 If the key **does not** exist in the map, add the key with an inital value of 1, otherwise, increment the value at key by 1.
 
 ### Sample Code
-```
+```go
 inputs := []int {1, 2, 3, 1}
 
 freq := make(map[int]int)
