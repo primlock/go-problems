@@ -1,4 +1,6 @@
-package linkedlist
+// Singly Linked-List Demo
+
+package playground
 
 import (
 	"errors"
@@ -14,7 +16,7 @@ type LinkedList struct {
 	head *Node
 }
 
-func (l *LinkedList) printAllNodes() error {
+func (l *LinkedList) Display() error {
 	if l == nil {
 		return errors.New("uninitialized list")
 	}
@@ -39,7 +41,7 @@ func (l *LinkedList) printAllNodes() error {
 	return nil
 }
 
-func (l *LinkedList) add(val int) (*Node, error) {
+func (l *LinkedList) Add(val int) (*Node, error) {
 	if l == nil {
 		return &Node{
 			val:  -1,
@@ -69,7 +71,7 @@ func (l *LinkedList) add(val int) (*Node, error) {
 	return node, nil
 }
 
-func (l *LinkedList) remove(node *Node) error {
+func (l *LinkedList) Remove(node *Node) error {
 	if l == nil {
 		return errors.New("uninitialized list")
 	}
@@ -99,56 +101,4 @@ func (l *LinkedList) remove(node *Node) error {
 	}
 
 	return errors.New("node not found")
-}
-
-func Driver() {
-	ll := &LinkedList{
-		head: nil,
-	}
-
-	var err error
-	var node *Node
-
-	_, err = ll.add(1)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	_, err = ll.add(2)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	node, err = ll.add(3)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	err = ll.printAllNodes()
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// Remove one node
-
-	err = ll.remove(node)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	err = ll.printAllNodes()
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// Remove a node that doesn't exist
-	nonNode := &Node{
-		val:  -1,
-		next: nil,
-	}
-
-	err = ll.remove(nonNode)
-	if err != nil {
-		fmt.Println(err)
-	}
 }
