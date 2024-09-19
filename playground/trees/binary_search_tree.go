@@ -15,55 +15,44 @@ package playground
 
 import "fmt"
 
-func (t *BinaryTree) BSTInsert(data int) *BinaryTree {
-	if t.root == nil {
-		t.root = &TreeNode{data: data, left: nil, right: nil}
-	} else {
-		t.root.BSTInsert(data)
+// Insert - Decide if the values needs to be inserted to the left or the right of the root.
+func (n *TreeNode) Insert(data int) (node *TreeNode) {
+	if n.Search(data) {
+		return nil
 	}
 
-	return t
-}
-
-func (n *TreeNode) BSTInsert(data int) {
 	if n == nil {
-		return
-	} else if n.data >= data { // left
+		return &TreeNode{data: data, left: nil, right: nil}
+	} else if n.data > data { // left
 		// Determine if we need to keep going deeper
 		if n.left == nil {
 			n.left = &TreeNode{data: data, left: nil, right: nil}
 		} else {
 			// Need to go further to find a vacancy
-			n.left.BSTInsert(data)
+			n.left.Insert(data)
 		}
 	} else { // right
 		if n.right == nil {
 			n.right = &TreeNode{data: data, left: nil, right: nil}
 		} else {
-			n.right.BSTInsert(data)
+			n.right.Insert(data)
 		}
 	}
+
+	return n
 }
 
 // Search - Looking through the tree to find a target value
-func (t *BinaryTree) BSTSearch(target int) bool {
-	if t.root == nil {
-		return false
-	} else {
-		return t.root.BSTSearch(target)
-	}
-}
-
-func (n *TreeNode) BSTSearch(target int) bool {
+func (n *TreeNode) Search(target int) bool {
 	if n == nil {
 		return false
 	} else {
 		if n.data == target {
 			return true
 		} else if target < n.data { // left
-			return n.left.BSTSearch(target)
+			return n.left.Search(target)
 		} else { // right
-			return n.right.BSTSearch(target)
+			return n.right.Search(target)
 		}
 	}
 }
@@ -86,73 +75,40 @@ going to the next level.
 */
 
 // In-order (left-subtree, root, right-subtree)
-func (t *BinaryTree) BSTTraversalInOrder() {
-	if t.root == nil {
-		return
-	} else {
-		t.root.BSTTraversalInOrder()
-	}
-}
-
-func (n *TreeNode) BSTTraversalInOrder() {
+func (n *TreeNode) InOrderTraversal() {
 	if n == nil {
 		return
 	}
 
-	// Go left as far as possible, then look at node, then go right as far as possible
-	n.left.BSTTraversalInOrder()
+	n.left.InOrderTraversal()
 	fmt.Println(n.data)
-	n.right.BSTTraversalInOrder()
+	n.right.InOrderTraversal()
 }
 
 // Pre-order (root, left-subtree, right-subtree)
-func (t *BinaryTree) BSTTraveralPreOrder() {
-	if t.root == nil {
-		return
-	} else {
-		t.root.BSTTraversalPreOrder()
-	}
-}
-
-func (n *TreeNode) BSTTraversalPreOrder() {
+func (n *TreeNode) PreOrderTraversal() {
 	if n == nil {
 		return
-	} else {
-		fmt.Println(n.data)
-		n.left.BSTTraversalPreOrder()
-		n.right.BSTTraversalPreOrder()
 	}
+
+	fmt.Println(n.data)
+	n.left.PreOrderTraversal()
+	n.right.PreOrderTraversal()
 }
 
 // Post-order (left-subtree, right-subtree, root)
-func (t *BinaryTree) BSTTraversalPostOrder() {
-	if t.root == nil {
-		return
-	} else {
-		t.root.BSTTraversalPostOrder()
-	}
-}
-
-func (n *TreeNode) BSTTraversalPostOrder() {
+func (n *TreeNode) PostOrderTraversal() {
 	if n == nil {
 		return
-	} else {
-		n.left.BSTTraversalPostOrder()
-		n.right.BSTTraversalPostOrder()
-		fmt.Println(n.data)
 	}
+
+	n.left.PostOrderTraversal()
+	n.right.PostOrderTraversal()
+	fmt.Println(n.data)
 }
 
 // Level-order (current level, next level, ...)
-func (t *BinaryTree) BSTTraversalLevelOrder() {
-	if t.root == nil {
-		return
-	} else {
-		t.root.BSTTraversalLevelOrder()
-	}
-}
-
-func (n *TreeNode) BSTTraversalLevelOrder() {
+func (n *TreeNode) LevelOrderTraversal() {
 	if n == nil {
 		return
 	}
@@ -192,59 +148,55 @@ right of the root node. If it does, we need to search for a successor. If
 it doesn't, we need to look for a predecessor.
 */
 
-func (b *BinaryTree) Remove(data int) {
-	// Node must exist in tree to be removed
-	if b.BSTSearch(data) {
-		Remove(b.root, data)
-	}
-}
-
-func Remove(root *TreeNode, data int) *TreeNode {
-	if root == nil {
-		return root
+func (n *TreeNode) Remove(data int) *TreeNode {
+	if n == nil {
+		return nil
+	} else if !n.Search(data) {
+		return nil
 	}
 
 	// Find the node's location
-	if data == root.data {
+	if data == n.data {
 		// Is this a leaf?
-		if root.left == nil && root.right == nil {
-			root = nil
-		} else if root.right != nil {
+		if n.left == nil && n.right == nil {
+			n = nil
+		} else if n.right != nil {
 			// need a successor
-			root.data = Successor(root)
-			root.right = Remove(root.right, root.data)
+			n.data = n.Successor()
+			n.right = n.right.Remove(data)
 		} else {
 			// need a predecessor
-			root.data = Predecessor(root)
-			root.left = Remove(root.left, root.data)
+			n.data = n.Predecessor()
+			n.left = n.left.Remove(data)
 		}
-	} else if data < root.data {
-		root.left = Remove(root.left, data)
+	} else if data < n.data {
+		n.left = n.left.Remove(data)
 	} else {
-		root.right = Remove(root.right, data)
+		n.right = n.right.Remove(data)
 	}
 
-	return root
+	// Return the new root
+	return n
 }
 
-func Successor(root *TreeNode) int {
+func (n *TreeNode) Successor() int {
 	// Go right and then left until you hit the end
-	root = root.right
+	n = n.right
 
-	for root.left != nil {
-		root = root.left
+	for n.left != nil {
+		n = n.left
 	}
 
-	return root.data
+	return n.data
 }
 
-func Predecessor(root *TreeNode) int {
+func (n *TreeNode) Predecessor() int {
 	// Go left and then right until you hit the end
-	root = root.left
+	n = n.left
 
-	for root.right != nil {
-		root = root.right
+	for n.right != nil {
+		n = n.right
 	}
 
-	return root.data
+	return n.data
 }

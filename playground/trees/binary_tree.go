@@ -11,10 +11,6 @@ type TreeNode struct {
 	right *TreeNode
 }
 
-type BinaryTree struct {
-	root *TreeNode
-}
-
 func printIndent(indent int) {
 	fmt.Print(strings.Repeat(" ", indent))
 }

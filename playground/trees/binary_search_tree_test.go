@@ -1,28 +1,41 @@
 package playground
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestBSTInsert(t *testing.T) {
-	tree := &BinaryTree{}
+func TestInsert(t *testing.T) {
+	var root *TreeNode
 
-	tree.BSTInsert(2)
-	tree.BSTInsert(1)
-	tree.BSTInsert(3)
-	tree.BSTInsert(4)
-	tree.BSTInsert(6)
-	tree.BSTInsert(8)
-	tree.BSTInsert(7)
-	tree.BSTInsert(9)
+	root = root.Insert(2)
+	root.Insert(1)
+	root.Insert(3)
+	root.Insert(4)
+	root.Insert(6)
+	root.Insert(8)
+	root.Insert(7)
+	root.Insert(9)
 
-	TreeDisplay(tree.root, 0)
+	TreeDisplay(root, 0)
 }
 
-func TestBSTSearch(t *testing.T) {
-	tree := &BinaryTree{}
+func TestInsertDuplicate(t *testing.T) {
+	var root *TreeNode
 
-	tree.BSTInsert(2)
-	tree.BSTInsert(1)
-	tree.BSTInsert(3)
+	root = root.Insert(2)
+	root.Insert(3)
+	root.Insert(4)
+	root.Insert(4)
+
+	TreeDisplay(root, 0)
+}
+
+func TestSearch(t *testing.T) {
+	var root *TreeNode
+
+	root = root.Insert(2)
+	root.Insert(1)
+	root.Insert(3)
 
 	testCases := []struct {
 		name     string
@@ -36,7 +49,7 @@ func TestBSTSearch(t *testing.T) {
 
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
-			got := tree.BSTSearch(tt.target)
+			got := root.Search(tt.target)
 			want := tt.expected
 
 			if got != want {
@@ -46,64 +59,64 @@ func TestBSTSearch(t *testing.T) {
 	}
 }
 
-func TestBSTTraversalInOrder(t *testing.T) {
-	tree := &BinaryTree{}
+func TestInOrderTraversal(t *testing.T) {
+	var root *TreeNode
 
-	tree.BSTInsert(5)
-	tree.BSTInsert(2)
-	tree.BSTInsert(6)
-	tree.BSTInsert(1)
-	tree.BSTInsert(3)
+	root = root.Insert(5)
+	root.Insert(2)
+	root.Insert(6)
+	root.Insert(1)
+	root.Insert(3)
 
-	tree.BSTTraversalInOrder()
+	root.InOrderTraversal()
 }
 
-func TestBSTTraversalPreOrder(t *testing.T) {
-	tree := &BinaryTree{}
+func TestPreOrderTraversal(t *testing.T) {
+	var root *TreeNode
 
-	tree.BSTInsert(5)
-	tree.BSTInsert(2)
-	tree.BSTInsert(6)
-	tree.BSTInsert(1)
-	tree.BSTInsert(3)
+	root = root.Insert(5)
+	root.Insert(2)
+	root.Insert(6)
+	root.Insert(1)
+	root.Insert(3)
 
-	tree.BSTTraveralPreOrder()
+	root.PreOrderTraversal()
 }
 
-func TestBSTTraversalPostOrder(t *testing.T) {
-	tree := &BinaryTree{}
+func TestPostOrderTraversal(t *testing.T) {
+	var root *TreeNode
 
-	tree.BSTInsert(5)
-	tree.BSTInsert(2)
-	tree.BSTInsert(6)
-	tree.BSTInsert(1)
-	tree.BSTInsert(3)
+	root = root.Insert(5)
+	root.Insert(2)
+	root.Insert(6)
+	root.Insert(1)
+	root.Insert(3)
 
-	tree.BSTTraversalPostOrder()
+	root.PostOrderTraversal()
 }
 
-func TestBSTTraversalLevelOrder(t *testing.T) {
-	tree := &BinaryTree{}
+func TestLevelOrderTraversal(t *testing.T) {
+	var root *TreeNode
 
-	tree.BSTInsert(5)
-	tree.BSTInsert(2)
-	tree.BSTInsert(6)
-	tree.BSTInsert(1)
-	tree.BSTInsert(3)
+	root = root.Insert(5)
+	root.Insert(2)
+	root.Insert(6)
+	root.Insert(1)
+	root.Insert(3)
 
-	tree.BSTTraversalLevelOrder()
+	root.LevelOrderTraversal()
 }
 
-func TestBSTRemove(t *testing.T) {
-	tree := &BinaryTree{}
+func TestRemove(t *testing.T) {
+	var root *TreeNode
 
-	tree.BSTInsert(5)
-	tree.BSTInsert(2)
-	tree.BSTInsert(6)
-	tree.BSTInsert(1)
-	tree.BSTInsert(3)
+	root = root.Insert(5)
+	root.Insert(2)
+	root.Insert(6)
+	root.Insert(1)
+	root.Insert(3)
 
-	tree.Remove(5)
+	root.Remove(2)
 
-	TreeDisplay(tree.root, 0)
+	TreeDisplay(root, 0)
 }
