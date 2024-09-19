@@ -1,6 +1,7 @@
 package playground
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -60,15 +61,35 @@ func TestSearch(t *testing.T) {
 }
 
 func TestInOrderTraversal(t *testing.T) {
-	var root *TreeNode
+	testCases := []struct {
+		name     string
+		root     *TreeNode
+		expected []int
+	}{
+		{
+			name: "1",
+			root: &TreeNode{data: 5,
+				left: &TreeNode{data: 2,
+					left: &TreeNode{data: 1,
+						left: nil, right: nil},
+					right: &TreeNode{data: 3,
+						left: nil, right: nil}},
+				right: &TreeNode{data: 6,
+					left: nil, right: nil}},
+			expected: []int{1, 2, 3, 5, 6},
+		},
+	}
 
-	root = root.Insert(5)
-	root.Insert(2)
-	root.Insert(6)
-	root.Insert(1)
-	root.Insert(3)
+	for _, tt := range testCases {
+		t.Run(tt.name, func(t *testing.T) {
+			got := tt.root.InOrderTraversal()
+			want := tt.expected
 
-	root.InOrderTraversal()
+			if !reflect.DeepEqual(got, want) {
+				t.Errorf("got %v want %v", got, want)
+			}
+		})
+	}
 }
 
 func TestPreOrderTraversal(t *testing.T) {

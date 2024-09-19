@@ -75,14 +75,23 @@ going to the next level.
 */
 
 // In-order (left-subtree, root, right-subtree)
-func (n *TreeNode) InOrderTraversal() {
-	if n == nil {
-		return
+func (n *TreeNode) InOrderTraversal() []int {
+	array := make([]int, 0)
+
+	var inOrder func(*TreeNode)
+	inOrder = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+
+		inOrder(root.left)
+		array = append(array, root.data)
+		inOrder(root.right)
 	}
 
-	n.left.InOrderTraversal()
-	fmt.Println(n.data)
-	n.right.InOrderTraversal()
+	inOrder(n)
+
+	return array
 }
 
 // Pre-order (root, left-subtree, right-subtree)
