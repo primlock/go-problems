@@ -1,5 +1,6 @@
 package playground
 
+// Time: O(n²), Space: O(1)
 func InsertionSort(array []int, n int) []int {
 	// Start comparing from index 1
 	for i := 1; i < n; i++ {
