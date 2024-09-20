@@ -141,3 +141,20 @@ func TestRemove(t *testing.T) {
 
 	TreeDisplay(root, 0)
 }
+
+func TestBalance(t *testing.T) {
+	// Skewed BST
+	var root *TreeNode
+
+	root = root.Insert(4)
+	root.Insert(3)
+	root.Insert(5)
+	root.Insert(2)
+	root.Insert(6)
+	root.Insert(1)
+	root.Insert(7)
+
+	balanced := root.Balance()
+
+	TreeDisplay(balanced, 0)
+}

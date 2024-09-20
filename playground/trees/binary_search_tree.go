@@ -209,3 +209,40 @@ func (n *TreeNode) Predecessor() int {
 
 	return n.data
 }
+
+/*
+Balancing - Convert a non-balanced BST into a balanced BST
+
+Take the nodes from your imbalanced BST and turn them into a sorted array.
+- In order traversal returns the nodes in ascending order.
+
+Start processing the nodes in the sorted array recursivly.
+- Take the middle value of that sorted array and use it as the root for the current subtree.
+	- The nodes on the left side of the mid value are in the left subtree.
+	- The nodees on the right side of the mid value are in the right subtree.
+- Build the left subtree first, passing the start value and a decrementing end value, recursivly.
+- Build the right subtree by passing an incrementing start value and the end value, recursivly.
+*/
+
+func (n *TreeNode) Balance() *TreeNode {
+	sorted := n.InOrderTraversal()
+	return balanceFromSortedArray(sorted, 0, len(sorted)-1)
+}
+
+func balanceFromSortedArray(array []int, start, end int) *TreeNode {
+	if start > end {
+		return nil
+	}
+
+	// Find the middle element and create a root node from it.
+	mid := (start + end) / 2
+	root := &TreeNode{data: array[mid]}
+
+	// Build the left subtree
+	root.left = balanceFromSortedArray(array, start, mid-1)
+
+	// Build the right subtree
+	root.right = balanceFromSortedArray(array, mid+1, end)
+
+	return root
+}
