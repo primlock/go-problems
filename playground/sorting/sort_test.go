@@ -100,3 +100,27 @@ func TestMergeSort(t *testing.T) {
 		})
 	}
 }
+
+func TestQuickSort(t *testing.T) {
+	testCases := []struct {
+		name     string
+		arr      []int
+		expected []int
+	}{
+		{name: "1", arr: []int{23, 1, 10, 5, 2}, expected: []int{1, 2, 5, 10, 23}},
+		{name: "2", arr: []int{7, 7, 7, 1}, expected: []int{1, 7, 7, 7}},
+		{name: "3", arr: []int{1}, expected: []int{1}},
+		{name: "4", arr: []int{}, expected: []int{}},
+	}
+
+	for _, tt := range testCases {
+		t.Run(tt.name, func(t *testing.T) {
+			got := QuickSort(tt.arr)
+			want := tt.expected
+
+			if !reflect.DeepEqual(got, want) {
+				t.Errorf("got %v want %v", got, want)
+			}
+		})
+	}
+}
