@@ -180,12 +180,14 @@ func (n *TreeNode) Remove(data int) *TreeNode {
 		if n.left == nil && n.right == nil {
 			n = nil
 		} else if n.right != nil {
-			// need a successor
+			// Find the successor value in the tree and bubble it up
 			n.data = n.Successor()
+			// Remove the sucessor value from the right subtree so there is no duplication
 			n.right = n.right.Remove(data)
 		} else {
-			// need a predecessor
+			// Find the predecessor value in the tree and bubble it up
 			n.data = n.Predecessor()
+			// Remove the predecessor value from the right subtree so there is no duplication
 			n.left = n.left.Remove(data)
 		}
 	} else if data < n.data {
