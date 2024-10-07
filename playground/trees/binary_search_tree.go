@@ -116,15 +116,25 @@ func (n *TreeNode) PostOrderTraversal() {
 	fmt.Println(n.data)
 }
 
-// Level-order (current level, next level, ...)
+/*
+Level-order (current level, next level, ...)
+
+Continue running while the queue is not empty.
+
+If the children (left and right) are not nil on the current pass,
+append them to the queue to process them at the next level.
+*/
 func (n *TreeNode) LevelOrderTraversal() {
 	if n == nil {
 		return
 	}
 
-	queue := []*TreeNode{n}
+	// Create a queue and add our root
+	queue := make([]*TreeNode, 0)
+	queue = append(queue, n)
 
 	for len(queue) > 0 {
+		// Pop the node from the queue
 		node := queue[0]
 		queue = queue[1:]
 
