@@ -10,7 +10,9 @@ func Reverse[S ~[]E, E any](s S)
 
 Reverse reverses the elements of the slice in place. 
 
-### Example
+<details>
+
+<summary>Example</summary>
 
 ```go
 package main
@@ -31,6 +33,7 @@ Output:
 
 [VERA Bob alice]
 ```
+</details>
 
 ## Sort
 
@@ -41,7 +44,9 @@ func Sort[S ~[]E, E cmp.Ordered](x S)
 Sort sorts a slice of any ordered type in ascending order. When sorting floating-point numbers, NaNs are ordered before other values.
 * If you would like descending order, call **Reverse** after calling **Sort**.
 
-### Example
+<details>
+
+<summary>Example</summary>
 
 ```go
 package main
@@ -62,3 +67,5 @@ Output:
 
 [-10 0 8 42]
 ```
+
+</details>

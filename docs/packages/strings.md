@@ -10,7 +10,9 @@ func Fields(s string) []string
 
 Fields splits the string `s` around each instance of one or more consecutive white space characters, as defined by `unicode.IsSpace`, returning a slice of substrings of `s` or an empty slice if `s` contains only white space.
 
-### Example
+<details>
+
+<summary>Example</summary>
 
 ```go
 package main
@@ -30,6 +32,8 @@ Output:
 Fields are: ["foo" "bar" "baz"]
 ```
 
+</details>
+
 ## Split
 
 ```go
@@ -42,7 +46,9 @@ Split slices `s` into all substrings separated by `sep` and returns a slice of t
 * If sep is empty, Split splits after each UTF-8 sequence.
 * If both s and sep are empty, Split returns an empty slice. 
 
-### Example
+<details>
+
+<summary>Example</summary>
 
 ```go
 package main
@@ -67,3 +73,5 @@ Output:
 [" " "x" "y" "z" " "]
 [""]
 ```
+
+</details>
