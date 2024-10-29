@@ -15,23 +15,20 @@ package twopointer
 
 // Returning []int for the purpose of evaluation
 func MoveZeroes(nums []int) []int {
-	left := 0
-	right := 0
+	first := 0
+	second := 0
 
-	for right != (len(nums) - 1) {
-		if left < len(nums) && nums[left] == 0 {
-			for right != (len(nums)-1) && nums[right] == 0 {
-				right++
+	for second != len(nums)-1 {
+		if first < len(nums) && nums[first] == 0 {
+			for second != len(nums)-1 && nums[second] == 0 {
+				second++
 			}
 
-			tmp := nums[left]
-			nums[left] = nums[right]
-			nums[right] = tmp
-
-			left++
+			nums[first], nums[second] = nums[second], nums[first]
+			first++
 		} else {
-			left++
-			right++
+			first++
+			second++
 		}
 	}
 
