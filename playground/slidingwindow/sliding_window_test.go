@@ -14,11 +14,13 @@ func TestMaxSumInSubset(t *testing.T) {
 	}
 
 	for _, tt := range testCases {
-		got := MaxSumInSubset(tt.nums, tt.k)
-		want := tt.expected
+		t.Run(tt.name, func(t *testing.T) {
+			got := MaxSumInSubset(tt.nums, tt.k)
+			want := tt.expected
 
-		if got != want {
-			t.Errorf("got %d, want %d", got, want)
-		}
+			if got != want {
+				t.Errorf("got %d, want %d", got, want)
+			}
+		})
 	}
 }
