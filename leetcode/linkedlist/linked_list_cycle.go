@@ -19,11 +19,6 @@ return false.
 
 package linkedlist
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func HasCycle(head *ListNode) bool {
 	if head == nil {
 		return false
