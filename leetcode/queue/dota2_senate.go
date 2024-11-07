@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/dota2-senate
+
 package queue
 
 func PredictPartyVictory(senate string) string {
