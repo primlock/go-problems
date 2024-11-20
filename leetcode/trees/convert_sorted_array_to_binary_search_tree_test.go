@@ -1,10 +1,8 @@
-package array
+package trees
 
 import (
 	"reflect"
 	"testing"
-
-	"github.com/reyncode/go-problems/leetcode/trees"
 )
 
 func TestSortedArrayToBST(t *testing.T) {
@@ -13,8 +11,16 @@ func TestSortedArrayToBST(t *testing.T) {
 		nums     []int
 		expected *TreeNode
 	}{
-		{name: "1", nums: []int{-10, -3, 0, 5, 9}, expected: trees.ArrayToBinaryTree([]interface{}{0, -10, 5, nil, -3, nil, 9})},
-		{name: "2", nums: []int{1, 3}, expected: trees.ArrayToBinaryTree([]interface{}{1, nil, 3})},
+		{
+			name:     "1",
+			nums:     []int{-10, -3, 0, 5, 9},
+			expected: ArrayToBinaryTree([]interface{}{0, -10, 5, nil, -3, nil, 9}),
+		},
+		{
+			name:     "2",
+			nums:     []int{1, 3},
+			expected: ArrayToBinaryTree([]interface{}{1, nil, 3}),
+		},
 	}
 
 	for _, tt := range testCases {

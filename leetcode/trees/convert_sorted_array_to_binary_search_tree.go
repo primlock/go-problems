@@ -1,12 +1,6 @@
 // https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree
 
-package array
-
-import (
-	"github.com/reyncode/go-problems/leetcode/trees"
-)
-
-type TreeNode = trees.TreeNode
+package trees
 
 func insert(array []int, start, end int) *TreeNode {
 	// Guard from overlapping boundaries
