@@ -9,41 +9,13 @@ func TestMaxDepth(t *testing.T) {
 		expected int
 	}{
 		{
-			name: "1",
-			root: &TreeNode{
-				Val: 3,
-				Left: &TreeNode{
-					Val:   9,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val: 20,
-					Left: &TreeNode{
-						Val:   15,
-						Left:  nil,
-						Right: nil,
-					},
-					Right: &TreeNode{
-						Val:   7,
-						Left:  nil,
-						Right: nil,
-					},
-				},
-			},
+			name:     "1",
+			root:     ArrayToBinaryTree([]interface{}{3, 9, 20, nil, nil, 15, 7}),
 			expected: 3,
 		},
 		{
-			name: "2",
-			root: &TreeNode{
-				Val:  1,
-				Left: nil,
-				Right: &TreeNode{
-					Val:   2,
-					Left:  nil,
-					Right: nil,
-				},
-			},
+			name:     "2",
+			root:     ArrayToBinaryTree([]interface{}{1, nil, 2}),
 			expected: 2,
 		},
 	}

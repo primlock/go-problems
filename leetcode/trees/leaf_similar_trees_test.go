@@ -10,63 +10,15 @@ func TestLeafSimilar(t *testing.T) {
 		expected bool
 	}{
 		{
-			name: "1",
-			root1: &TreeNode{
-				Val: 1,
-				Left: &TreeNode{
-					Val:   2,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
-				},
-			},
-			root2: &TreeNode{
-				Val: 1,
-				Left: &TreeNode{
-					Val:   2,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
-				},
-			},
+			name:     "1",
+			root1:    ArrayToBinaryTree([]interface{}{3, 5, 1, 6, 2, 9, 8, nil, nil, 7, 4}),
+			root2:    ArrayToBinaryTree([]interface{}{3, 5, 1, 6, 7, 4, 2, nil, nil, nil, nil, nil, nil, 9, 8}),
 			expected: true,
 		},
 		{
-			name: "2",
-			root1: &TreeNode{
-				Val: 1,
-				Left: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:   2,
-					Left:  nil,
-					Right: nil,
-				},
-			},
-			root2: &TreeNode{
-				Val: 1,
-				Left: &TreeNode{
-					Val:   2,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
-				},
-			},
+			name:     "2",
+			root1:    ArrayToBinaryTree([]interface{}{1, 2, 3}),
+			root2:    ArrayToBinaryTree([]interface{}{1, 3, 2}),
 			expected: false,
 		},
 	}

@@ -13,57 +13,18 @@ func TestDeleteNode(t *testing.T) {
 		expected *TreeNode
 	}{
 		{
-			name: "1",
-			root: &TreeNode{
-				Val: 5,
-				Left: &TreeNode{
-					Val: 3,
-					Left: &TreeNode{
-						Val:   2,
-						Left:  nil,
-						Right: nil,
-					},
-					Right: &TreeNode{
-						Val:   4,
-						Left:  nil,
-						Right: nil,
-					},
-				},
-				Right: &TreeNode{
-					Val:  6,
-					Left: nil,
-					Right: &TreeNode{
-						Val:   7,
-						Left:  nil,
-						Right: nil,
-					},
-				},
-			},
-			key: 3,
-			expected: &TreeNode{
-				Val: 5,
-				Left: &TreeNode{
-					Val: 4,
-					Left: &TreeNode{
-						Val:   2,
-						Left:  nil,
-						Right: nil,
-					},
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:  6,
-					Left: nil,
-					Right: &TreeNode{
-						Val:   7,
-						Left:  nil,
-						Right: nil,
-					},
-				},
-			},
-		},
+			name:     "1",
+			root:     ArrayToBinaryTree([]interface{}{5, 3, 6, 2, 4, nil, 7}),
+			key:      3,
+			expected: ArrayToBinaryTree([]interface{}{5, 4, 6, 2, nil, nil, 7})},
 		{
 			name:     "2",
+			root:     ArrayToBinaryTree([]interface{}{5, 3, 6, 2, 4, nil, 7}),
+			key:      0,
+			expected: ArrayToBinaryTree([]interface{}{5, 3, 6, 2, 4, nil, 7}),
+		},
+		{
+			name:     "3",
 			root:     nil,
 			key:      0,
 			expected: nil,

@@ -13,59 +13,15 @@ func TestSearchBST(t *testing.T) {
 		expected *TreeNode
 	}{
 		{
-			name: "1",
-			root: &TreeNode{
-				Val: 4,
-				Left: &TreeNode{
-					Val: 2,
-					Left: &TreeNode{
-						Val:   1,
-						Left:  nil,
-						Right: nil,
-					},
-					Right: &TreeNode{
-						Val:   3,
-						Left:  nil,
-						Right: nil,
-					},
-				},
-				Right: &TreeNode{
-					Val:   7,
-					Left:  nil,
-					Right: nil,
-				},
-			},
-			val: 2,
-			expected: &TreeNode{
-				Val: 2,
-				Left: &TreeNode{
-					Val:   1,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
-				},
-			},
+			name:     "1",
+			root:     ArrayToBinaryTree([]interface{}{4, 2, 7, 1, 3}),
+			val:      2,
+			expected: ArrayToBinaryTree([]interface{}{2, 1, 3}),
 		},
 		{
-			name: "2",
-			root: &TreeNode{
-				Val: 2,
-				Left: &TreeNode{
-					Val:   1,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val:   3,
-					Left:  nil,
-					Right: nil,
-				},
-			},
-			val:      4,
+			name:     "2",
+			root:     ArrayToBinaryTree([]interface{}{4, 2, 7, 1, 3}),
+			val:      5,
 			expected: nil,
 		},
 	}

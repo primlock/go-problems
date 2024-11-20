@@ -10,57 +10,17 @@ func TestIsValidBST(t *testing.T) {
 	}{
 		{
 			name:     "1",
-			root:     &TreeNode{Val: 2, Left: &TreeNode{Val: 1}, Right: &TreeNode{Val: 3}},
+			root:     ArrayToBinaryTree([]interface{}{2, 1, 3}),
 			expected: true,
 		},
 		{
-			name: "2",
-			root: &TreeNode{
-				Val: 5,
-				Left: &TreeNode{
-					Val:   1,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val: 4,
-					Left: &TreeNode{
-						Val:   3,
-						Left:  nil,
-						Right: nil,
-					},
-					Right: &TreeNode{
-						Val:   6,
-						Left:  nil,
-						Right: nil,
-					},
-				},
-			},
+			name:     "2",
+			root:     ArrayToBinaryTree([]interface{}{5, 1, 4, nil, nil, 3, 6}),
 			expected: false,
 		},
 		{
-			name: "3",
-			root: &TreeNode{
-				Val: 5,
-				Left: &TreeNode{
-					Val:   4,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: &TreeNode{
-					Val: 6,
-					Left: &TreeNode{
-						Val:   3,
-						Left:  nil,
-						Right: nil,
-					},
-					Right: &TreeNode{
-						Val:   7,
-						Left:  nil,
-						Right: nil,
-					},
-				},
-			},
+			name:     "3",
+			root:     ArrayToBinaryTree([]interface{}{5, 4, 6, nil, nil, 3, 7}),
 			expected: false,
 		},
 	}
