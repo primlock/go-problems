@@ -8,8 +8,8 @@ func TestLongestZigZag(t *testing.T) {
 		root     *TreeNode
 		expected int
 	}{
-		{name: "1", root: ArrayToBST([]interface{}{1, nil, 1, 1, 1, nil, nil, 1, 1, nil, 1, nil, nil, nil, 1}), expected: 3},
-		{name: "2", root: ArrayToBST([]interface{}{1, 1, 1, nil, 1, nil, nil, 1, 1, nil, 1}), expected: 4},
+		{name: "1", root: ArrayToBinaryTree([]interface{}{1, nil, 1, 1, 1, nil, nil, 1, 1, nil, 1, nil, nil, nil, 1}), expected: 3},
+		{name: "2", root: ArrayToBinaryTree([]interface{}{1, 1, 1, nil, 1, nil, nil, 1, 1, nil, 1}), expected: 4},
 	}
 
 	for _, tt := range testCases {

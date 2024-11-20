@@ -6,7 +6,12 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func ArrayToBST(nodes []interface{}) *TreeNode {
+// This function builds a binary tree from an interface.
+// The programmer can pass nil as an element to represent the end
+// of a subtree.
+// The output of this function is NOT garunteed to be balanced or
+// follow the rules of a binary search tree.
+func ArrayToBinaryTree(nodes []interface{}) *TreeNode {
 	if len(nodes) == 0 {
 		return nil
 	}

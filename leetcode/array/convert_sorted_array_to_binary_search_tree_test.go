@@ -13,8 +13,8 @@ func TestSortedArrayToBST(t *testing.T) {
 		nums     []int
 		expected *TreeNode
 	}{
-		{name: "1", nums: []int{-10, -3, 0, 5, 9}, expected: trees.ArrayToBST([]interface{}{0, -10, 5, nil, -3, nil, 9})},
-		{name: "2", nums: []int{1, 3}, expected: trees.ArrayToBST([]interface{}{1, nil, 3})},
+		{name: "1", nums: []int{-10, -3, 0, 5, 9}, expected: trees.ArrayToBinaryTree([]interface{}{0, -10, 5, nil, -3, nil, 9})},
+		{name: "2", nums: []int{1, 3}, expected: trees.ArrayToBinaryTree([]interface{}{1, nil, 3})},
 	}
 
 	for _, tt := range testCases {

@@ -9,8 +9,8 @@ func TestPathSum(t *testing.T) {
 		targetSum int
 		expected  int
 	}{
-		{name: "1", root: ArrayToBST([]interface{}{10, 5, -3, 3, 2, nil, 11, 3, -2, nil, 1}), targetSum: 8, expected: 3},
-		{name: "2", root: ArrayToBST([]interface{}{5, 4, 8, 11, nil, 13, 4, 7, 2, nil, nil, 5, 1}), targetSum: 22, expected: 3},
+		{name: "1", root: ArrayToBinaryTree([]interface{}{10, 5, -3, 3, 2, nil, 11, 3, -2, nil, 1}), targetSum: 8, expected: 3},
+		{name: "2", root: ArrayToBinaryTree([]interface{}{5, 4, 8, 11, nil, 13, 4, 7, 2, nil, nil, 5, 1}), targetSum: 22, expected: 3},
 	}
 
 	for _, tt := range testCases {

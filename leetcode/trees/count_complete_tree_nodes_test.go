@@ -8,9 +8,9 @@ func TestCountNodes(t *testing.T) {
 		root     *TreeNode
 		expected int
 	}{
-		{name: "1", root: ArrayToBST([]interface{}{1, 2, 3, 4, 5, 6}), expected: 6},
+		{name: "1", root: ArrayToBinaryTree([]interface{}{1, 2, 3, 4, 5, 6}), expected: 6},
 		{name: "2", root: nil, expected: 0},
-		{name: "3", root: ArrayToBST([]interface{}{1}), expected: 1},
+		{name: "3", root: ArrayToBinaryTree([]interface{}{1}), expected: 1},
 	}
 
 	for _, tt := range testCases {
